@@ -8,11 +8,11 @@
     {
       "title": "Utilisation courante",
       "items": [
-        { "id": "logs",     "text": "Comment charger les bûches dans les deux cartouches, et quelles bûches conviennent (dimensions, bois sec, essences à éviter)." },
-        { "id": "start",    "text": "Comment faire le premier feu et démarrer le système depuis l'application." },
+        { "id": "logs",     "text": "Comment charger les bûches dans les deux cassettes, et quelles bûches conviennent (dimensions, bois sec, essences à éviter)." },
+        { "id": "start",    "text": "Comment allumer le premier feu et démarrer le système depuis l'application." },
         { "id": "temp",     "text": "Comment régler la température de confort, et ce que représentent les différents niveaux." },
-        { "id": "schedule", "text": "Comment utiliser le programmateur semaine et week-end." },
-        { "id": "stop",     "text": "Comment arrêter le poêle par le mode refroidissement, et pourquoi il ne faut jamais le débrancher en cours de fonctionnement." }
+        { "id": "schedule", "text": "Comment utiliser le programmateur de température" },
+        { "id": "stop",     "text": "Comment arrêter le poêle avec l'application et le button, et pourquoi il ne faut jamais le débrancher en cours de fonctionnement." }
       ]
     },
     {
@@ -21,14 +21,14 @@
         { "id": "watch",  "text": "Que le poêle reste un appareil à combustion : surveillance, dégagements autour de l'appareil, évacuation des cendres." },
         { "id": "door",   "text": "Qu'une cartouche ne s'ouvre jamais pendant une insertion, et comment déverrouiller une porte depuis l'application." },
         { "id": "fault",  "text": "Ce qu'il faut faire lorsque le poêle signale un défaut, et comment le résoudre une fois la cause traitée." },
-        { "id": "button", "text": "À quoi sert le bouton de maintenance situé sur le poêle, et ce que déclenche chaque durée d'appui." }
+        { "id": "button", "text": "À quoi sert le bouton de maintenance situé sur le poêle, et ce que déclenche chaque durée d'appui, et où trouver ces informations." }
       ]
     },
     {
       "title": "Application et entretien",
       "items": [
         { "id": "app",    "text": "Comment lire l'état du poêle dans l'application : température, mode en cours, niveau des cartouches." },
-        { "id": "alerts", "text": "Comment activer les notifications, et ce que signifie chacune des alertes." },
+        { "id": "alerts", "text": "Comment activer les notifications, et ce qu'elles signifie." },
         { "id": "maint",  "text": "Le ramonage et l'entretien obligatoires, et où l'application en rappelle les échéances." }
       ]
     },
