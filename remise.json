@@ -1,0 +1,43 @@
+{
+  "version": "2026-09-08",
+  "url": "https://henri-dlgx.github.io/woodmood-legal/remise.html",
+  "updated": "2026-09-08",
+  "title": "Remise de l'appareil",
+  "intro": "Votre installateur doit vous avoir présenté chacun des points ci-dessous, poêle et application sous les yeux. Ne cochez que ce qui vous a réellement été montré.",
+  "groups": [
+    {
+      "title": "Utilisation courante",
+      "items": [
+        { "id": "logs",     "text": "Comment charger les bûches dans les deux cartouches, et quelles bûches conviennent (dimensions, bois sec, essences à éviter)." },
+        { "id": "start",    "text": "Comment faire le premier feu et démarrer le système depuis l'application." },
+        { "id": "temp",     "text": "Comment régler la température de confort, et ce que représentent les différents niveaux." },
+        { "id": "schedule", "text": "Comment utiliser le programmateur semaine et week-end." },
+        { "id": "stop",     "text": "Comment arrêter le poêle par le mode refroidissement, et pourquoi il ne faut jamais le débrancher en cours de fonctionnement." }
+      ]
+    },
+    {
+      "title": "Sécurité",
+      "items": [
+        { "id": "watch",  "text": "Que le poêle reste un appareil à combustion : surveillance, dégagements autour de l'appareil, évacuation des cendres." },
+        { "id": "door",   "text": "Qu'une cartouche ne s'ouvre jamais pendant une insertion, et comment déverrouiller une porte depuis l'application." },
+        { "id": "fault",  "text": "Ce qu'il faut faire lorsque le poêle signale un défaut, et comment le résoudre une fois la cause traitée." },
+        { "id": "button", "text": "À quoi sert le bouton de maintenance situé sur le poêle, et ce que déclenche chaque durée d'appui." }
+      ]
+    },
+    {
+      "title": "Application et entretien",
+      "items": [
+        { "id": "app",    "text": "Comment lire l'état du poêle dans l'application : température, mode en cours, niveau des cartouches." },
+        { "id": "alerts", "text": "Comment activer les notifications, et ce que signifie chacune des alertes." },
+        { "id": "maint",  "text": "Le ramonage et l'entretien obligatoires, et où l'application en rappelle les échéances." }
+      ]
+    },
+    {
+      "title": "Transmission des consignes",
+      "items": [
+        { "id": "transmit", "text": "Je m'engage à transmettre ces mêmes consignes à toute personne que j'autorise à utiliser le poêle ou l'application, et à ne laisser personne s'en servir sans les avoir reçues." }
+      ]
+    }
+  ],
+  "note": "Liste lue par l'application ET par remise.html. C'est l'unique source : modifier cette liste met les deux à jour. Voir README.md avant de changer un identifiant."
+}

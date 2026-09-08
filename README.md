@@ -9,6 +9,8 @@ Publié par GitHub Pages :
 |---|---|---|
 | `conditions.html` | https://henri-dlgx.github.io/woodmood-legal/conditions.html | Le texte, affiché dans l'application |
 | `version.json` | https://henri-dlgx.github.io/woodmood-legal/version.json | Ce que l'application interroge au démarrage |
+| `remise.json` | https://henri-dlgx.github.io/woodmood-legal/remise.json | La liste de remise installateur, lue par l'application |
+| `remise.html` | https://henri-dlgx.github.io/woodmood-legal/remise.html | La même liste, lisible dans un navigateur |
 
 L'application (`Henri-dlgx/WM_App-French`) ne code en dur que l'adresse de
 `version.json`. Tout le reste — le texte **et** l'adresse de la page — se pilote
@@ -81,3 +83,76 @@ propre téléphone ne demande pas l'acceptation dans la minute.
 5. **`version.json` injoignable** (hors ligne, Pages en panne) → un utilisateur
    déjà inscrit se connecte normalement sur sa dernière version acceptée. Une
    panne de réseau ne doit jamais empêcher quelqu'un de piloter son poêle.
+
+## La liste de remise
+
+L'installateur doit présenter l'appareil au client avant de partir. `remise.json`
+est la liste des points à couvrir ; le client la confirme dans l'application, et
+**c'est le poêle qui retient la confirmation**, pas le téléphone.
+
+Conséquence directe : un client qui change de téléphone, réinstalle
+l'application ou la partage avec son conjoint n'est jamais re-sollicité. Seule
+une réinitialisation d'usine du poêle remet le compteur à zéro — ce qui est
+correct, puisqu'un poêle réinitialisé est un poêle réinstallé.
+
+### Une seule liste, deux affichages
+
+`remise.json` est l'unique source. `remise.html` la lit au chargement,
+l'application la lit de son côté. **Ne recopiez jamais les points en dur** dans
+l'une ou l'autre : la première divergence donnerait à un client une liste
+différente de celle qu'il confirme.
+
+```bash
+python3 -m json.tool remise.json    # avant chaque push
+```
+
+### Modifier la liste
+
+| Ce que vous faites | Effet |
+|---|---|
+| Reformuler le texte d'un point | Immédiat, personne n'est re-sollicité |
+| Ajouter ou retirer un point | Immédiat pour les remises à venir ; les remises déjà confirmées ne bougent pas |
+| Changer un `id` | À éviter — voir ci-dessous |
+
+Les `id` (`logs`, `fault`, `transmit`…) sont enregistrés dans le poêle avec la
+confirmation. Ils constituent la trace de ce qui a été présenté, des années après.
+Réutiliser un `id` pour un point qui veut dire autre chose rend cette trace
+mensongère : préférez toujours un nouvel `id` et laissez l'ancien disparaître.
+
+### Ce qui ne se fait PAS ici
+
+Changer le champ `version` de `remise.json` **ne re-sollicite personne**, et c'est
+délibéré. C'est la différence de fond avec `version.json` :
+
+- les conditions sont un accord avec une **personne** — elles peuvent changer, et
+  la personne doit alors les ré-accepter ;
+- la remise est un fait à propos d'une **installation** — elle a eu lieu ou non,
+  et redemander deux ans plus tard « votre installateur vous a-t-il montré ? »
+  n'aurait aucun sens.
+
+Le champ `version` de `remise.json` sert uniquement à savoir, en relisant une
+confirmation ancienne, quelle liste le client avait sous les yeux ce jour-là.
+
+### Ce que l'application fait exactement
+
+1. Au démarrage, elle lit `version.json` et y trouve l'adresse de `remise.json`
+   (champ `remise`). Seule l'adresse de `version.json` est codée en dur dans
+   l'application.
+2. Une fois connectée, elle reçoit du poêle l'état de la remise.
+3. Confirmée → rien ne s'affiche, jamais.
+4. Non confirmée → un bandeau demande si l'installateur a fait la démonstration.
+   « Oui » ouvre la liste ; le client coche, valide, et le poêle enregistre.
+   « Pas encore » écarte le bandeau pour cette session seulement, et propose la
+   page `remise.html` — un client à qui personne n'a rien montré doit pouvoir
+   apprendre par lui-même, pas seulement se faire relancer.
+5. **Poêle injoignable, ou poêle d'une génération antérieure qui n'annonce rien**
+   → aucun bandeau. Le bandeau ne s'affiche que sur une réponse explicite
+   « non confirmé » venue du poêle, jamais sur une absence de réponse.
+
+### La clause de transmission
+
+Le dernier point de la liste (`transmit`) engage le client à transmettre les
+mêmes consignes à toute personne qui se sert du poêle chez lui. Il double la
+section 4 des conditions : la clause donne la portée juridique, la case rend
+l'engagement explicite au moment de la remise. Si vous modifiez l'une, relisez
+l'autre.

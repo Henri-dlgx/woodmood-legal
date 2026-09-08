@@ -1,6 +1,7 @@
 {
-  "version": "2026-09-07",
+  "version": "2026-09-08",
   "url": "https://henri-dlgx.github.io/woodmood-legal/conditions.html",
-  "updated": "2026-09-07",
-  "note": "Texte provisoire (lorem ipsum) — a remplacer par les conditions reelles avant mise en service client."
+  "remise": "https://henri-dlgx.github.io/woodmood-legal/remise.json",
+  "updated": "2026-09-08",
+  "note": "Texte provisoire (lorem ipsum) sauf la section 4, qui est reelle. Ajout de la liste de remise installateur. A relire par un juriste avant mise en service client."
 }
